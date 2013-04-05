@@ -44,9 +44,13 @@ emacs = LC_ALL=C $(EMACS) $(EMACSOPT)
 # See also the target all below.
 VMDIR = @VMDIR@
 
-VM	= -eval '(if (not (string-match "$(VMDIR)" "")) (setq load-path (cons "$(VMDIR)" load-path)))'
+ifdef VMDIR
+VM	= -L $(VMDIR)
+else
+VM	=
+endif
 
-PUSHPATH = -eval '(push "./" load-path)'
+PUSHPATH = -L ./
 
 .SUFFIXES: .elc .el .tar .Z .gz .uu
 
