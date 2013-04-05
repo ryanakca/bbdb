@@ -35,7 +35,7 @@ LN_S = @LN_S@
 EMACS = @EMACS_PROG@
 
 # Command line flags for Emacs.
-EMACSOPT = --batch --no-site-file --no-init-file
+EMACSOPT = --batch -Q
 
 # The actual Emacs command run in the targets below.
 emacs = LC_ALL=C $(EMACS) $(EMACSOPT)
